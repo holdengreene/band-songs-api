@@ -1,0 +1,23 @@
+{
+  "name": "band-songs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holdengreene/band-songs-api.git"
+  },
+  "author": "Holden Greene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holdengreene/band-songs-api/issues"
+  },
+  "homepage": "https://github.com/holdengreene/band-songs-api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.7"
+  }
+}

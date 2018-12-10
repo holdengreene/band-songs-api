@@ -1,0 +1,20 @@
+version: '3'
+services:
+  api:
+    build: .
+    command: yarn start
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+  database:
+    image: postgres:11-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: bandsongs
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: bandsongs
