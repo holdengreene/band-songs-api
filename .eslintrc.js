@@ -5,6 +5,9 @@ module.exports = {
     node: true,
     es6: true
   },
+  parserOptions: {
+    sourceType: "module"
+  },
   rules: {
     "prettier/prettier": "error"
   }
