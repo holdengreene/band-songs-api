@@ -1,6 +1,6 @@
 module.exports = (sequalize, DataTypes) => {
   const Band = sequalize.define("band", {
-    band_name: DataTypes.STRING
+    bandName: DataTypes.STRING
   });
 
   Band.associate = models => {
