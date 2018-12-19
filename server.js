@@ -1,10 +1,9 @@
 "use strict";
 
+require("dotenv").config();
 const express = require("express");
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(
-  "postgres://bandsongs:test@database:5432/bandsongs"
-);
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 // Constants
 const PORT = 8080;
