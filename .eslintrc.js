@@ -6,7 +6,8 @@ module.exports = {
     es6: true
   },
   parserOptions: {
-    sourceType: "module"
+    sourceType: "module",
+    ecmaVersion: "2017"
   },
   rules: {
     "prettier/prettier": "error"
