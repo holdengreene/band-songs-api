@@ -5,7 +5,6 @@ const express = require("express");
 
 const models = require("./models/index");
 
-const routes = require("./routes/index");
 const bands = require("./routes/bands");
 
 // Constants
@@ -19,7 +18,6 @@ const app = express();
 app.use(express.json());
 
 // Set up all them routes
-app.use("/", routes);
 app.use("/bands", bands);
 
 // Just now for dev. Init Dummy data
