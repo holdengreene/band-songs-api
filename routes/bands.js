@@ -6,7 +6,7 @@ router.get("/:band_id", async (req, res) => {
   let band;
 
   try {
-    band = await models.Band.findById(req.params.band_id);
+    band = await models.Band.findByPk(req.params.band_id);
   } catch (e) {
     return res.json(e);
   }
