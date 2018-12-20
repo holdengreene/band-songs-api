@@ -2,12 +2,12 @@ const models = require("../models/index");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  models.Band.findAll({
-    include: [models.Song]
-  }).then(bands => {
+router.post("/create", (req, res) => {
+  models.Band.create({
+    bandName: req.body.bandName
+  }).then(response => {
     res.json({
-      bands
+      response
     });
   });
 });
