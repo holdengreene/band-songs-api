@@ -37,4 +37,25 @@ router.delete("/:band_id/destroy", async (req, res) => {
   });
 });
 
+router.post("/:band_id/songs/create", async (req, res) => {
+  let songCreated;
+
+  try {
+    const { title, chords, uploadUrl, description } = req.body;
+    songCreated = await models.Song.create({
+      title,
+      chords,
+      uploadUrl,
+      description,
+      bandId: req.params.band_id
+    });
+  } catch (e) {
+    return res.json(e);
+  }
+
+  res.json({
+    songCreated
+  });
+});
+
 module.exports = router;
