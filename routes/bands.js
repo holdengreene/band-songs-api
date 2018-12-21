@@ -2,6 +2,9 @@ const models = require("../models/index");
 const express = require("express");
 const router = express.Router();
 
+/**
+ * Get the basic info for a band
+ */
 router.get("/:band_id", async (req, res) => {
   let band;
 
@@ -16,6 +19,9 @@ router.get("/:band_id", async (req, res) => {
   });
 });
 
+/**
+ * Create a band
+ */
 router.post("/create", async (req, res) => {
   let bandCreated;
 
@@ -32,6 +38,9 @@ router.post("/create", async (req, res) => {
   });
 });
 
+/**
+ * Delete a band
+ */
 router.delete("/:band_id/destroy", async (req, res) => {
   let bandDestroyed;
 
@@ -51,6 +60,9 @@ router.delete("/:band_id/destroy", async (req, res) => {
   });
 });
 
+/**
+ * Get the songs for a band
+ */
 router.get("/:band_id/songs", async (req, res) => {
   let songs;
 
@@ -58,7 +70,9 @@ router.get("/:band_id/songs", async (req, res) => {
     songs = await models.Song.findAll({
       where: {
         bandId: req.params.band_id
-      }
+      },
+      limit: req.query.limit,
+      offset: req.query.offset
     });
   } catch (e) {
     return res.json(e);
@@ -69,6 +83,9 @@ router.get("/:band_id/songs", async (req, res) => {
   });
 });
 
+/**
+ * Create songs under a band
+ */
 router.post("/:band_id/songs/create", async (req, res) => {
   let songCreated;
 
@@ -90,6 +107,9 @@ router.post("/:band_id/songs/create", async (req, res) => {
   });
 });
 
+/**
+ * Delete songs associated with a band
+ */
 router.delete("/:band_id/songs/:song_id/destroy", async (req, res) => {
   let songDestroyed;
 

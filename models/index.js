@@ -1,8 +1,13 @@
 const Sequelize = require("sequelize");
 
 // Actually connect. Ya Know.
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  operatorsAliases: false
+});
 
+/**
+ * Import all the models and export them
+ */
 const models = {
   Band: sequelize.import("./band"),
   Song: sequelize.import("./song")
