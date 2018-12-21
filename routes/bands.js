@@ -73,7 +73,7 @@ router.get("/:band_id/songs", async (req, res) => {
       },
       limit: req.query.limit,
       offset: req.query.offset,
-      order: [["updatedAt", "DESC"]]
+      order: [["title", "ASC"]]
     });
   } catch (e) {
     return res.json(e);
