@@ -112,11 +112,11 @@ router.post("/:band_id/songs/create", async (req, res) => {
   let songCreated;
 
   try {
-    const { title, chords, uploadUrl, description } = req.body;
+    const { title, chords, uploadUrls, description } = req.body;
     songCreated = await models.Song.create({
       title,
       chords,
-      uploadUrl,
+      uploadUrls,
       description,
       bandId: req.params.band_id
     });
@@ -136,12 +136,12 @@ router.patch("/:band_id/songs/:song_id/update", async (req, res) => {
   let songUpdated;
 
   try {
-    const { title, chords, uploadUrl, description } = req.body;
+    const { title, chords, uploadUrls, description } = req.body;
     songUpdated = await models.Song.update(
       {
         title,
         chords,
-        uploadUrl,
+        uploadUrls,
         description
       },
       {
