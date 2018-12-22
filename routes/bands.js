@@ -85,6 +85,27 @@ router.get("/:band_id/songs", async (req, res) => {
 });
 
 /**
+ * Get a one single song
+ */
+router.get("/:band_id/songs/:song_id", async (req, res) => {
+  let song;
+
+  try {
+    song = await models.Song.find({
+      where: {
+        bandId: req.params.band_id
+      }
+    });
+  } catch (e) {
+    return res.json(e);
+  }
+
+  res.json({
+    songs: song
+  });
+});
+
+/**
  * Create songs under a band
  */
 router.post("/:band_id/songs/create", async (req, res) => {
@@ -105,6 +126,36 @@ router.post("/:band_id/songs/create", async (req, res) => {
 
   res.json({
     songCreated
+  });
+});
+
+/**
+ * Update a song for a band
+ */
+router.patch("/:band_id/songs/:song_id/update", async (req, res) => {
+  let songUpdated;
+
+  try {
+    const { title, chords, uploadUrl, description } = req.body;
+    songUpdated = await models.Song.update(
+      {
+        title,
+        chords,
+        uploadUrl,
+        description
+      },
+      {
+        where: {
+          id: req.params.song_id
+        }
+      }
+    );
+  } catch (e) {
+    return res.json(e);
+  }
+
+  res.json({
+    songUpdated
   });
 });
 
