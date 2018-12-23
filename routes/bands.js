@@ -93,7 +93,8 @@ router.get("/:band_id/songs/:song_id", async (req, res) => {
   try {
     song = await models.Song.find({
       where: {
-        bandId: req.params.band_id
+        bandId: req.params.band_id,
+        id: req.params.song_id
       }
     });
   } catch (e) {
