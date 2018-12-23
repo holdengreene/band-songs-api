@@ -101,7 +101,7 @@ router.get("/:band_id/songs/:song_id", async (req, res) => {
   }
 
   res.json({
-    songs: song
+    song
   });
 });
 
