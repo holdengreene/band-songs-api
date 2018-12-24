@@ -25,9 +25,9 @@
     "sequelize": "^4.42.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9",
-    "eslint": "^5.10.0",
+    "eslint": "^5.11.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "nodemon": "^1.18.9",
     "prettier": "^1.15.3",
     "prettier-eslint": "^8.8.2"
   }
