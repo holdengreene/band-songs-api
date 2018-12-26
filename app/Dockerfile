@@ -10,3 +10,6 @@ RUN yarn
 
 # Copy over all the files
 COPY . .
+
+CMD ["node", "index.js"]
+

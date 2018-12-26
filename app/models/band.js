@@ -1,5 +1,7 @@
-module.exports = (sequalize, DataTypes) => {
-  const Band = sequalize.define("band", {
+console.log("band endpoint");
+
+module.exports = (sequelize, DataTypes) => {
+  const Band = sequelize.define("band", {
     bandName: DataTypes.STRING
   });
 

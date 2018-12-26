@@ -1,5 +1,7 @@
 "use strict";
 
+console.log("This file loaded, baby");
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -8,9 +10,11 @@ const models = require("./models/index");
 
 const bands = require("./routes/bands");
 
+console.log("A little lower");
+
 // Constants
 const PORT = 8080;
-const HOST = "0.0.0.0";
+// const HOST = "0.0.0.0";
 
 // App
 const app = express();
@@ -28,11 +32,22 @@ app.use(express.json());
 // Set up all them routes
 app.use("/bands", bands);
 
+// console.log("Index models", models);
+// console.log(models.sequelize.sync());
+
+app.listen(PORT);
+
 // Just now for dev. Init Dummy data
-models.sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, HOST);
-  console.log(`Running on http://${HOST}:${PORT}`);
-});
+models.sequelize
+  .sync({ force: true })
+  .then(() => {
+    console.log("hello");
+    app.listen(PORT);
+    console.log(`Running on http://localhost:${PORT}`);
+  })
+  .catch(error => {
+    console.log("Something has gone horribly wrong", error);
+  });
 // .then(() => {
 //   models.Band.create({
 //     bandName: "Dirty Danny & the Naughty Pilgrims"
@@ -55,3 +70,5 @@ models.sequelize.sync({ force: false }).then(() => {
 //     });
 // });
 // });
+
+console.log("under");

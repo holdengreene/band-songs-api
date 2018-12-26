@@ -2,9 +2,12 @@
   "name": "band-songs-api",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
