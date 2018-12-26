@@ -1,16 +1,12 @@
 "use strict";
 
-console.log("This file loaded, baby");
-
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-const models = require("./models/index");
+const models = require("./models");
 
 const bands = require("./routes/bands");
-
-console.log("A little lower");
 
 // Constants
 const PORT = 8080;
@@ -35,18 +31,14 @@ app.use("/bands", bands);
 // console.log("Index models", models);
 // console.log(models.sequelize.sync());
 
-app.listen(PORT);
-
 // Just now for dev. Init Dummy data
 models.sequelize
   .sync({ force: true })
   .then(() => {
-    console.log("hello");
-    app.listen(PORT);
-    console.log(`Running on http://localhost:${PORT}`);
+    app.listen(process.env.PORT || PORT);
   })
   .catch(error => {
-    console.log("Something has gone horribly wrong", error);
+    throw new Error(error);
   });
 // .then(() => {
 //   models.Band.create({
@@ -70,5 +62,3 @@ models.sequelize
 //     });
 // });
 // });
-
-console.log("under");

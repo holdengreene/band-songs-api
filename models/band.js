@@ -1,5 +1,3 @@
-console.log("band endpoint");
-
 module.exports = (sequelize, DataTypes) => {
   const Band = sequelize.define("band", {
     bandName: DataTypes.STRING
