@@ -133,7 +133,7 @@ router.post("/:band_id/songs/create", async (req, res) => {
 /**
  * Update a song for a band
  */
-router.patch("/:band_id/songs/:song_id/update", async (req, res) => {
+router.post("/:band_id/songs/:song_id/update", async (req, res) => {
   let songUpdated;
 
   try {

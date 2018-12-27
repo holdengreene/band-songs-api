@@ -33,7 +33,7 @@ app.use("/bands", bands);
 
 // Just now for dev. Init Dummy data
 models.sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     app.listen(process.env.PORT || PORT);
   })
