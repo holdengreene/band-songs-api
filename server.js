@@ -40,25 +40,3 @@ models.sequelize
   .catch(error => {
     throw new Error(error);
   });
-// .then(() => {
-//   models.Band.create({
-//     bandName: "Dirty Danny & the Naughty Pilgrims"
-//   }).then(() => {
-//     models.Song.create({
-//       title: "Protest Poetry",
-//       bandId: 1,
-//       chords: ["Em", "Ebm", "G#7b5"],
-//       uploadUrl: "https://gooogle.csadc",
-//       description: "It's like whatever"
-//     }).then(() => {
-//       models.Song.create({
-//         title: "Making My Bed",
-//         bandId: 1,
-//         chords: ["D", "G", "F", "E7"],
-//         uploadUrl: "https://gooogle.csadc",
-//         description:
-//           "It's the only way I can feel these days. Repeat chorus 2x."
-//       });
-//     });
-// });
-// });
