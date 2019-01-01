@@ -36,6 +36,11 @@ models.sequelize
   .then(() => {
     app.listen(process.env.PORT || PORT);
   })
+  .then(() => {
+    models.Band.create({
+      bandName: "PP and the Kids"
+    });
+  })
   .catch(error => {
     throw new Error(error);
   });
