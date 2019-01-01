@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 const express = require("express");
+const helmet = require("helmet");
 const cors = require("cors");
 
 const models = require("./models");
@@ -15,9 +16,11 @@ const PORT = 8080;
 // App
 const app = express();
 
+app.use(helmet());
+
 // Set up cors, leave open for dev
 const corsOptions = {
-  origin: "*"
+  origin: process.env.ORIGIN
 };
 
 app.use(cors(corsOptions));
@@ -28,12 +31,8 @@ app.use(express.json());
 // Set up all them routes
 app.use("/bands", bands);
 
-// console.log("Index models", models);
-// console.log(models.sequelize.sync());
-
-// Just now for dev. Init Dummy data
 models.sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     app.listen(process.env.PORT || PORT);
   })
