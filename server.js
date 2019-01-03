@@ -32,14 +32,9 @@ app.use(express.json());
 app.use("/bands", bands);
 
 models.sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     app.listen(PORT, HOST);
-  })
-  .then(() => {
-    models.Band.create({
-      bandName: "PP and the Kids"
-    });
   })
   .catch(error => {
     throw new Error(error);
