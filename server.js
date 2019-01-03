@@ -11,7 +11,7 @@ const bands = require("./routes/bands");
 
 // Constants
 const PORT = 8080;
-// const HOST = "0.0.0.0";
+const HOST = "0.0.0.0";
 
 // App
 const app = express();
@@ -34,7 +34,7 @@ app.use("/bands", bands);
 models.sequelize
   .sync({ force: true })
   .then(() => {
-    app.listen(process.env.PORT || PORT);
+    app.listen(PORT, HOST);
   })
   .then(() => {
     models.Band.create({
