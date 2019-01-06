@@ -1,9 +1,7 @@
 "use strict";
 
-require("dotenv").config();
 const express = require("express");
 const helmet = require("helmet");
-const cors = require("cors");
 
 const models = require("./models");
 
@@ -17,13 +15,6 @@ const HOST = "0.0.0.0";
 const app = express();
 
 app.use(helmet());
-
-// Set up cors, leave open for dev
-const corsOptions = {
-  origin: process.env.ORIGIN
-};
-
-app.use(cors(corsOptions));
 
 // Set up all thems middlewares
 app.use(express.json());

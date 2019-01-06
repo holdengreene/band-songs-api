@@ -1,9 +1,9 @@
-FROM node:10-alpine
+FROM keymetrics/pm2:10-alpine
 
 # Create app directory
 WORKDIR /usr/src/api
 
-COPY ./package.json ./yarn.lock ./
+COPY ./package.json ./yarn.lock pm2.json ./
 
 # Install dependencies
 RUN yarn install --production
@@ -13,4 +13,4 @@ COPY . .
 
 ENV HOST 0.0.0.0
 
-CMD ["yarn", "start"]
+CMD [ "pm2-runtime", "start", "pm2.json" ]
