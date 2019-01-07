@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {
-    "node": "10.x"
-  },
   "scripts": {
     "start": "pm2 start server.js",
     "dev": "nodemon server.js"

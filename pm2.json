@@ -2,10 +2,7 @@
     "name": "band-songs-api",
     "script": "server.js",
     "instances": "1",
-    "env": {
-      "NODE_ENV": "development"
-    },
-    "env_production" : {
+    "env" : {
       "NODE_ENV": "production"
     }
   }
