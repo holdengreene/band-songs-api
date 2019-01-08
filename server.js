@@ -22,6 +22,12 @@ app.use(express.json());
 // Set up all them routes
 app.use("/bands", bands);
 
+// Ain't need no indexing
+app.get("/robots.txt", function(req, res) {
+  res.type("text/plain");
+  res.send("User-agent: *\nDisallow: /");
+});
+
 models.sequelize
   .sync({ force: false })
   .then(() => {
